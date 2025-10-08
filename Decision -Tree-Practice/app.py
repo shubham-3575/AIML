@@ -38,3 +38,9 @@ export_graphviz(clf,out_file = dot_data,
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 graph.write_png('diabetes.png')
 Image(graph.create_png())
+
+#Accuracy enhanced
+clf = DecisionTreeClassifier(criterion="entropy", max_depth=3)
+clf = clf.fit(X_train,y_train)
+metrics.accuracy_score(y_test,y_pred)
+y_pred = clf.predict(X_test)
