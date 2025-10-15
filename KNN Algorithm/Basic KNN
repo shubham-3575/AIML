@@ -1,0 +1,13 @@
+from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
+bmi  = {"Height":[167,182,176,173,172,174,169,173,170],"Weight":[51,62,69,64,65,56,58,57,55],"Class":["Underweight","Normal","Normal","Normal","Normal","Underweight","Normal","Normal","Normal"]}
+bmi = pd.DataFrame(bmi)
+x=bmi[["Height","Weight"]]
+y=bmi[["Class"]]
+alg = KNeighborsClassifier(n_neighbors=5)
+alg.fit(x,y)
+alg.predict([[170,57]])[0]
+
+
+
+output will be : "Normal"
